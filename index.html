@@ -1,0 +1,227 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!--metatextblock-->
+    <title>3D галерея</title>
+</head>
+
+<style>
+    :root {
+        --ScaleWrapper: scale(0.8);
+        /*размер галлереи (работает по принципу scale)*/
+        --BorderRadius: 20px;
+        /*радиус скругления углов*/
+    }
+
+    .tn-atom__img {
+        border-radius: 0px !important;
+    }
+
+    #wrapper {
+        position: absolute;
+        right: 0;
+        z-index: 999;
+        perspective: 5000;
+        -webkit-perspective: 5000;
+        width: 100%;
+        margin: 20% 0%;
+        perspective-origin: 50% 150px;
+        -webkit-perspective-origin: 50% 150px;
+        transition: perspective, 1s;
+        -o-transition: -o-perspective, 1s;
+        -moz-transition: -moz-perspective, 1s;
+        -webkit-transition: -webkit-perspective, 1s;
+        transform: var(--ScaleWrapper);
+    }
+
+    img {
+        width: 380px;
+    }
+
+    #image {
+        margin: 0 auto;
+        height: 300px;
+        width: 400px;
+        -moz-transform-style: preserve-3d;
+        -webkit-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        -moz-animation: rotate 15s infinite linear;
+        -webkit-animation: rotate 15s infinite linear;
+        animation: rotate 15s infinite linear;
+    }
+
+    .image {
+        position: absolute;
+        height: 100px;
+        width: 400px;
+        border-radius: var(--BorderRadius);
+        text-align: center;
+        font-size: 20em;
+        color: #fff;
+
+    }
+
+    #image>.i1 {
+        transform: translateZ(485px);
+        -moz-transform: translateZ(485px);
+        -o-transform: translateZ(485px);
+        -ms-transform: translateZ(485px);
+        -webkit-transform: translateZ(485px);
+
+    }
+
+    #image>.i2 {
+        transform: rotateY(45deg) translateZ(485px);
+        -moz-transform: rotateY(45deg) translateZ(485px);
+        -o-transform: rotateY(45deg) translateZ(485px);
+        -ms-transform: rotateY(45deg) translateZ(485px);
+        -webkit-transform: rotateY(45deg) translateZ(485px);
+    }
+
+    #image>.i3 {
+        transform: rotateY(90deg) translateZ(485px);
+        -moz-transform: rotateY(90deg) translateZ(485px);
+        -o-transform: rotateY(90deg) translateZ(485px);
+        -ms-transform: rotateY(90deg) translateZ(485px);
+        -webkit-transform: rotateY(90deg) translateZ(485px);
+    }
+
+    #image>.i4 {
+        transform: rotateY(135deg) translateZ(485px);
+        -moz-transform: rotateY(135deg) translateZ(485px);
+        -o-transform: rotateY(135deg) translateZ(485px);
+        -ms-transform: rotateY(135deg) translateZ(485px);
+        -webkit-transform: rotateY(135deg) translateZ(485px);
+    }
+
+    #image>.i5 {
+        transform: rotateY(180deg) translateZ(485px);
+        -moz-transform: rotateY(180deg) translateZ(485px);
+        -o-transform: rotateY(180deg) translateZ(485px);
+        -ms-transform: rotateY(180deg) translateZ(485px);
+        -webkit-transform: rotateY(180deg) translateZ(485px);
+    }
+
+    #image>.i6 {
+        transform: rotateY(225deg) translateZ(485px);
+        -moz-transform: rotateY(225deg) translateZ(485px);
+        -o-transform: rotateY(225deg) translateZ(485px);
+        -ms-transform: rotateY(225deg) translateZ(485px);
+        -webkit-transform: rotateY(225deg) translateZ(485px);
+    }
+
+    #image>.i7 {
+        transform: rotateY(270deg) translateZ(485px);
+        -moz-transform: rotateY(270deg) translateZ(485px);
+        -o-transform: rotateY(270deg) translateZ(485px);
+        -ms-transform: rotateY(270deg) translateZ(485px);
+        -webkit-transform: rotateY(270deg) translateZ(485px);
+    }
+
+    #image>.i8 {
+        transform: rotateY(315deg) translateZ(485px);
+        -moz-transform: rotateY(315deg) translateZ(485px);
+        -o-transform: rotateY(315deg) translateZ(485px);
+        -ms-transform: rotateY(315deg) translateZ(485px);
+        -webkit-transform: rotateY(315deg) translateZ(485px);
+    }
+
+    img {
+        border-radius: 25px;
+    }
+
+    @keyframes rotate {
+        0% {
+            -moz-transform: rotateX(15deg) rotateY(0) rotateZ(15deg);
+            -ms-transform: rotateX(15deg) rotateY(0) rotateZ(15deg);
+            -webkit-transform: rotateX(15deg) rotateY(0) rotateZ(15deg);
+            transform: rotateX(15deg) rotateY(0) rotateZ(15deg);
+        }
+
+        100% {
+            -moz-transform: rotateX(15deg) rotateY(360deg) rotateZ(15deg);
+            -ms-transform: rotateX(15deg) rotateY(360deg) rotateZ(15deg);
+            -webkit-transform: rotateX(15deg) rotateY(360deg) rotateZ(15deg);
+            transform: rotateX(15deg) rotateY(360deg) rotateZ(15deg);
+        }
+    }
+
+
+    @media screen and (max-width: 1024px) {
+        #wrapper {
+            perspective: 7000;
+            -webkit-perspective: 5000;
+            margin: 0%;
+            height: 100%;
+        }
+
+        #image {
+            position: relative;
+            width: 320px;
+            top: 30%;
+        }
+
+        img {
+            width: 320px;
+        }
+
+    }
+
+    @media screen and (max-width: 480px) {
+        #wrapper {
+            perspective: 300;
+            -webkit-perspective: 300;
+            overflow: visible;
+            margin: 0%;
+            height: 100%;
+        }
+
+        #image {
+            position: relative;
+            width: 320px;
+            top: 30%;
+        }
+
+        .image img {
+            width: 330px;
+            transform: scale(-1, 1);
+        }
+
+
+    }
+</style>
+
+<body class="t-body" style="margin: 0px;">
+    <div id="wrapper">
+        <div id="image">
+            <div class="image i1"><img
+                    src="https://static.tildacdn.com/tild6461-6531-4734-a366-633639313662/Frame_1313970.jpg">
+            </div>
+            <div class="image i2"><img
+                    src="https://static.tildacdn.com/tild6138-6463-4436-b061-346332326433/Frame_1313971.jpg">
+            </div>
+            <div class="image i3"><img
+                    src="data:image/jpeg;base64,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">
+            </div>
+            <div class="image i4"><img
+                    src="https://static.tildacdn.com/tild3630-6538-4437-b839-313135663439/Frame_1313973.jpg">
+            </div>
+            <div class="image i5"><img
+                    src="https://static.tildacdn.com/tild3366-3431-4262-b435-653465616563/Frame_1313974.jpg">
+            </div>
+            <div class="image i6"><img
+                    src="https://static.tildacdn.com/tild3739-3435-4730-a631-303661393565/Frame_1313975.jpg">
+            </div>
+            <div class="image i7"><img
+                    src="https://static.tildacdn.com/tild3333-3166-4239-a530-333066363566/Frame_1313976.jpg">
+            </div>
+            <div class="image i8"><img
+                    src="https://static.tildacdn.com/tild3130-3461-4137-b339-303834653931/Frame_1313977.jpg">
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
